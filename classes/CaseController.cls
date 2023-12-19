@@ -18,7 +18,7 @@ public with sharing class CaseController {
      String respBody;
      string trackingUrl='https://merzcommunities--mel.sandbox.my.salesforce-sites.com/services/apexrest/mockShipmentStatus?trackingNumber=';
         Case Kase=[SELECT Id,Order_Tracking__c FROM CASE WHERE Id=:recordId];
-        if(Kase<>NULL){
+        if(Kase<>NULL && Kase.Order_Tracking__c<>NULL){
            trackingUrl=trackingUrl+Kase.Order_Tracking__c; 
            
            //web service callout 
